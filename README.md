@@ -22,12 +22,13 @@ Syntax highlighted code block
 2. List
 
 **Bold** and _Italic_ and `Code` text
-
-[Test_1](Documentation/doc_demo_project.md) and ![Image](src)
-[Test_2](Documentation/doc_plugin.md)
+![Image](src)
 ```
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+
+[Test_1](Documentation/doc_demo_project.md) 
+[Test_2](Documentation/doc_plugin.md)
 
 ### Jekyll Themes
 
