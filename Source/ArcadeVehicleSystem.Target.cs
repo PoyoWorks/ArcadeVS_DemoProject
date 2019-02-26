@@ -9,6 +9,6 @@ public class ArcadeVehicleSystemTarget : TargetRules
 	{
 		Type = TargetType.Game;
 
-		ExtraModuleNames.AddRange( new string[] { "ArcadeVehicleSystem" } );
+		ExtraModuleNames.AddRange( new string[] { "ArcadeVehicleSystem", "ArcadeVS" } );
 	}
 }
