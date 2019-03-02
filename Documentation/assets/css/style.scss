@@ -1,0 +1,32 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+.page-header {
+	color: #1683e4 !important;
+	background-image: url(../images/banner_1920x380.png) !important;
+	height:380px;
+	padding: 16rem 6rem 0rem 6rem;
+}
+
+.main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {
+	color: rgba(24, 133, 229, 1);
+}
+
+a {
+	color: purple;
+}
+
+.btn {
+	color: rgba(255, 255, 255, 1);
+	border-color: rgba(255, 145, 0, .65);
+	background-color: rgba(255, 107, 0, .45);
+	transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+}
+
+.btn:hover {
+	color: rgba(255, 255, 255, 1);
+	border-color: rgba(255, 145, 0, 1);
+	background-color: rgba(255, 107, 0, 1);
+}
