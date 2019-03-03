@@ -1,3 +1,0 @@
-## ArcadeVS Plugin Documentation
-
-asdasdasdasd
