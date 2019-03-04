@@ -79,6 +79,10 @@ Plugins/*/Intermediate/*
 # Cache files for the editor to use
 DerivedDataCache/*
 
+# Jekyll Documentation
+_site
+_site/*
+*/_site
 
 # Plugins should have their own repo
 Plugins/*

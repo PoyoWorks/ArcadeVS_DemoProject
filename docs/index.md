@@ -1,13 +1,33 @@
-## Welcome to ArcadeVS Documentation
 
-Here you will find the documentation for UE4 Marketplace **Arcade Vehicle System** plugin.
-If you're looking for the documentation for the Demo Project that comes with the plugin, it's [here](Documentation/doc_demo_project.md) 
+Hi, Thanks for checking out **ArcadeVS**!
+
+Here you will find the latest documentation for Unreal Engine 4 Marketplace Vehicle System plugin **ArcadeVS** and its **DemoProject**.
+
+if you prefer to jump right in before checking the doc, here as some tutorials:
+- [ArcadeVS Project Setup from scratch](tutorial_projectsetup) 
+- [ArcadeVS Using your own Vehicle Mesh](tutorial_vehiclesetup) 
 
 
-### Introduction / Goal
+## Why ArcadeVS?
 
-### Some notes on Vehicle Systems in general
+Like any other physics based systems in a game, getting a Vehicle System right is very tricky.  
+Getting the code to work is one thing, but once that's done, the real work of getting something that's actually **fun to use** begins. 
 
+The biggest issue with Vehicle System is usually their complexity and inter-connected settings.  
+You tweak something for days, ajusting the tire fiction, suspensions, torque until it feels right and then you realize you need to change the mass of the vehicle for whatever reason and you're back to step 1. 
+
+So after reading a lot of documentation and looking at how some game studios solved this kind of issues, I realized that for most games *(except dedicated hardcore simulations)*, it comes down to the following points:
+- Simplify the physics system to its most basic elements
+- Try to decouple parameters as much as you can so that changes on one won't affect the others
+- Use animations and fake as much things as you can. This is very important as it will allow artists and gameplay designers to have the exact animation look they want without adding any requierement on the physics model. You want a car that tilts when braking? Instead of moving the center of mass of each of your vehicles to get it right, simply play a skeletal mesh animation.
+
+**So that's basically what I'm trying to do with ArcadeVS, make a system that's simple to use and to setup and most of all that makes fun to drive vehicles.**
+
+If you're working on your own Vehicle System or simply want to know more, you should check those two awsome videos:
+- [https://www.gdcvault.com/play/1024972/It-IS-Rocket-Science-The/](https://www.gdcvault.com/play/1024972/It-IS-Rocket-Science-The)
+- [http://blog.spaceduststudios.com/space-dust-racing-unreal-engine-4-arcade-vehicle-physics-tour/](http://blog.spaceduststudios.com/space-dust-racing-unreal-engine-4-arcade-vehicle-physics-tour/)
+
+Now, let's check out the plugin!
 
 ## Plugin architecture
 ArcadeVS is a **code plugin with content**. The main Vehicle System is just one C++ class that inherits UE **Pawn**'s class, it's self contained. 
