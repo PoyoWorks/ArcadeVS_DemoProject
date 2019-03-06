@@ -71,23 +71,70 @@ You should end up with something like this:
 
 Now that our Mesh is setup and our suspension system is configured, we can do a first test. 
 
-Make sure that you have a valid GameMode and that you have set your new Vehicle Actor as the Default Pawn Class for your GameMode and hit play!
+Before, make sure that you have properly set the **Default Pawn Class** and **Player Controller** for your GameMode and that you've created the needed inputs.
+(you can check [ArcadeVS Project Setup from scratch](tutorial_projectsetup) where all those steps are explained in details).
 
-(you can check [ArcadeVS Project Setup from scratch](tutorial_projectsetup) if you're unsure about how to do that)
+Once this is done, hit play!
 
-If everything works correctly, you camera should be at the Origin and should see a part of your Vehicle. To validate, hit the *Eject* button *(make sure that you were testing in the Editor and not in Standalone mode or you won't be able to Eject)* and move the camera to look at your Vehicle.
+If everything works correctly, you camera should be at the Origin and you should see a part of your Vehicle. To validate, hit the *Eject* button *(make sure that you are testing in the Editor Viewport and not in Standalone mode or you won't be able to Eject)* and move the camera to look at your Vehicle.
 
-You should see your vehicle resting above the ground and be able to see the Visualizer Raycast traces.
+You should see your vehicle resting above the ground and be able to see the Visualizer Raycast traces as small green dots intersecting the ground under your wheels.
 
 ![](/assets/images/tut_vehicle_8.png)
 
 
-### Camera Setup and System Tuning
+### System Tuning
 
-Now that the basic setup is done we're going to transform this into a fully playable Vehicle.
+Now that the basic setup is done we're going to fine tune our vehicle to make it playable. 
 
-- First we want to add a Spring Arm and a Camera to our Pawn so we have a nice view angle when playing. I'm not going to detail those steps and you're probably used to setting up those components if you're familiar with Unreal.
-If that's not the case, you can check ArcadeVS default Vehicles and check their settings as they both have Cameras properly setup.
--
+#### Camera
 
+Right now the vehicle should be already controllable but without a properly set camera, it's pretty much useless.
+
+So what we need is to add a Spring Arm and a Camera to our Pawn so that we can set a nice view angle when playing. I'm not going to detail those steps as you're probably used to setting up those components if you're familiar with Unreal. If that's not the case, you can check **ArcadeVS default Vehicles** and simply copy the **SpringArm** and **Camera** components to your new vehicle Blueprint.
+
+Now if you hit play, you should have a nice view angle and already be able to fully control the vehicle.
+
+![](/assets/images/tut_vehicle_9.png)
+
+#### Setting up the Animation Blueprint
+
+Ok we have a playable vehicle but it looks very stiff. That's because we havent setup our Animation Blueprint yet so our wheels do not turn and do not reflect the turning direction, let's fix this.
+
+- Locate the ArcadeVS_Basic_VehicleAnim Blueprint in **ArcadeVS Content folder**, right-click it and **Retarget Anim Blueprints->Duplicate Anim Blueprints and Retarget**. 
+- In the Retarget popup, uncheck the checkbox **Show only Compatible Skeletons**
+- Select the Skeleton of your new vehicle Skeletal Mesh
+- Now that the Animation Blueprint has been duplicated, copy it the Content folder of your project
+- Double click it to enter Edit mode and double click on the **AnimGraph** in the left panel under the mesh preview
+
+![](/assets/images/tut_vehicle_10.png)
+
+This Animation Blueprint is responsible for applying the Wheel Direction and Wheel Rotation parameters computed by the C++ Arcade Vehicle System to the wheel bones of your skeletal mesh. But right now, it's made to work with ArcadeVS Default Vehicles bones names. 
+
+If you've done everything correctly (and that your skeletal mesh bones where not exactly the same name as the default vehicles ones), you should have warning under each **Transform (Modify) Bone**, that's expected and we're going to fix this!
+
+To fix it, we just have to change the name of the bones in the **Transform (Modify) Bone** Blueprint nodes.
+
+The two top **Transform (Modify) Bone** nodes are responsible for applying the Wheel Direction on the front wheel. Select each of those nodes and select the corresponding wheel bone in your skeletal mesh.
+
+![](/assets/images/tut_vehicle_11.png)
+
+The four **Transform (Modify) Bone** under are responsible for rotating the wheels based on the speed of the Vehicle. Select each of those nodes and also select the corresponding bone.
+
+Now hit **Compile**, all warnings should be gone.
+
+*A good idea to validate that the Animation Blueprint is working as expected is to play with the ArcadeVS Animation settings in the **Anim Preview Editor** panel. You should see your mesh preview update in realtime to the changes.*
+
+![](/assets/images/tut_vehicle_12.png)
+
+#### Assigning the Animation Blueprint
+
+Our Vehicle is almost complete now. As the last step we just need to assign our newly created Animation Blueprint to our Vehicle Skeletal Mesh.
+
+Go back and Edit your new Vehicle Blueprint. Select the Skeletal Mesh component in the **Components panel** and under **Animation** select:
+
+- **Animation Mode** Use Animation Blueprint
+- **Anim Class** Select the new Animation Blueprint we just created
+
+Hit compile!
 
