@@ -1,12 +1,26 @@
+---
+layout: default
+title: Home
+nav_order: 1
+---
+
+# UE4 ArcadeVS Plugin
+{: .no_toc }
 
 Hi, Thanks for checking out **ArcadeVS**!
+Here you will find the latest documentation for UE4 Marketplace Arcade Vehicle System plugin **ArcadeVS** and its **DemoProject**.
+{: .fs-6 }
 
-Here you will find the latest documentation for Unreal Engine 4 Marketplace Vehicle System plugin **ArcadeVS** and its **DemoProject**.
+[Check ArcadeVS on the Marketplace]({{ site.marketplaceURL }}){: .btn .fs-5 .btn-blue} [Download the DemoProject](https://github.com/PoyoWorks/ArcadeVS_DemoProject/archive/v1.0.zip){:.btn .fs-5}
 
-if you prefer to jump right in before checking the doc, here as some tutorials:
-- [ArcadeVS Project Setup from scratch](tutorial_projectsetup) 
-- [ArcadeVS Using your own Vehicle Mesh](tutorial_vehiclesetup) 
+<hr>
 
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+<br>
 
 ## Why ArcadeVS?
 
@@ -37,9 +51,9 @@ This means that you won't have to dig into your components to find a specific se
 
 The plugin also contains some example blueprint vehicles classes and animation blueprints. Those vehicles inherits the main Vehicle System class and serves as examples on how to properly setup a vehicle. They have a skeletal mesh, some suspension points registered and their parameters have been fine tuned to make sure that they behave properly.   
 
-### C++ Vehicle System
+## C++ Vehicle System
 The Vehicle System is physics based. This means that all movement is due to physic forces being applied to the root component of the Vehicle Actor, which is the Skeletal Mesh component.
-#### Features
+### Features
 Here is a list of the main features of the Vehicle System. For a complete list of all the settings available, please check the [Vehicle System Settings page].
 - **Suspension system**: the suspensions are implemented using raycasts. This means that your wheels will not have any collision at all. Only the body of the car will have an actual collision geometry. This works very weel in practice and simplifies the setup of a Vehicle a lot. The suspensions have settings for height and damping. For all details please check here [Setting Up a Vehicle]
 - **Acceleration**: can be controlled either by an InputAction (when using a simple button) or an InputAxis (when using a Trigger for example)
@@ -51,13 +65,13 @@ Here is a list of the main features of the Vehicle System. For a complete list o
 - **Drifting**: with the simplest settings, drifting simply applies a nerf to the adherence force and an offset to the turning scale registered from the controller. But I wanted to get as close as I could to the Mario Kart system so I've added many settings to allow for keeping your speed while drifting, increasing your rotation angle and other cool stuff. You can check all the drift mechanic settings [here]
 
 
-### C++ Visualizer
+## C++ Visualizer
 The C++ Visualizer is an Actor Component that can be added to any ArcadeVSVehicle class. It will help you debug and fine tune the setup of your vehicle by drawing on the screen the main forces applied to your vehicle at runtime.
 
 ![](/assets/images/visualizer_3.png)
 *On this screenshot, the yellow arrow represents the velocity of the vehicle, the green arrow its acceleration and the purple one its adherence. You can also see the suspension raycasts. The vectors are drawn each frame and the time that they stay displayed can be configured. Here the time was set to .1 to see around 6f assuming we're running @60fps (~0.016*6)
 
-#### Settings
+### Settings
 Here are some details about some parameters
 - **Debug Material**: a custom material that will override the vehicle mesh material. This is quite handy for debugging the suspension system buy using a transparent material. This will allow you to exactly see the start and end point of the suspension raycasts as well as the center of gravity of the vehicle.
 - **Life Time**: the time that each force / raycast drawn will stay displayed. The setting that I find the most usefull is to set it to 0.016 while locking your framerate at 60fps in the Editor by using the Console command t.MaxFPS 60. This will ensure that you only see all the forces for the current frame.
@@ -68,11 +82,11 @@ Here are some details about some parameters
 
 By  creating either a C++ or Blueprint class inheriting the Visualizer, you could add your own routines to draw any new or existing properties of your Vehicle that you would like to monitor/debug.
 
-### C++ / Blueprint API
-#### C++
+## C++ / Blueprint API
+### C++
 The Vehicle System Logic is done in C++, but almost all functions are marked virtual and can be overriden by extending the class in C++. *The goal is that anyone can customize the system like he wants*. For example, if you don't like how the vehicles accelerate or jump, simply create a new C++ vehicle class and rewrite the **Accelerate()** or **Jump()** functions.
 
-#### Blueprints Events
+### Blueprints Events
 For Blueprints, most of the parameters concerning the current state of the Vehicle are exposed to blueprints to make adding Blueprint gameplay logic easier and keep your classes cleaner. Do you want to add a Particle VFX where the wheels contact with the ground? Simply check the **Suspension Hit Results** array and look for the **ImpactPoint** values.
 
 ![](/assets/images/api_state.png)  
@@ -120,7 +134,7 @@ Its behavior is different from the Test Vehicle:
 
 ![](/assets/images/kart_vehicle.png) 
 
-### Animation System
+## Animation System
 The Animation Instance Blueprints supports wheels rotation, front wheels direction and drift direction. All those values comes from the C++ interface and are updated each frame by the Vehicle System. The blueprint updates the position and rotation of each wheel bones to reflect the changes. 
 
 To use this blueprint, simply assign it to your skeletal mesh and update the names of the wheel bones in each Transform/Modify bone node.

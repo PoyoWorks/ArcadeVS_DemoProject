@@ -1,4 +1,9 @@
-title: [" "]
-description: [" "]
+title: ["ArcadeVS"]
+description: ["Description"]
+marketplaceURL: ["https://www.unrealengine.com/marketplace/en-US/store"]
 
-theme: jekyll-theme-cayman
+theme: "just-the-docs"
+search_enabled: true
+aux_links:
+    "PoyoWorks on github":
+      - "//github.com/poyoworks"

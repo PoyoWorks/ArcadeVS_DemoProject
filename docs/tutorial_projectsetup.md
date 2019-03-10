@@ -1,16 +1,32 @@
-## ArcadeVS Setup
+---
+layout: default
+title: Tutorial - Project Setup
+nav_order: 3
+---
+
+
+# Project Setup Tutorial
+{: .no_toc }
 
 This tutorial will explain in detail how to setup a project from scratch to use ArcadeVS and start playing with the TestVehicle (or KartVehicle).
+{: .fs-5 }
 
+f you're just looking to try out the plugin, you can also download the **[DemoProject](https://github.com/PoyoWorks/ArcadeVS_DemoProject/archive/v1.0.zip)** and have fun with it. 
+It contains a nice demo map with two game modes
+- A little Racing game including UI screens, checkpoints, timers and laps
+- A Free run mode where you can jump and have fun around the map with the TestVehicle.
 
->f you're just looking to try out the plugin, you can also download the **[DemoProject](https://github.com/PoyoWorks/ArcadeVS_DemoProject/archive/v1.0.zip)** and have fun with it. It contains a nice demo map with two game modes:
->- A little Racing game including UI screens, checkpoints, timers and laps
->- A Free run mode where you can jump and have fun around the map with the TestVehicle.
->
->The documentation of the **DemoProject** is here
+<hr>
 
-### Project Setup
-#### Enabling the Plugin
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+<br>
+
+## Project Setup
+### Enabling the Plugin
 
 The first thing that you'll have to do, will be to enable ArcadeVS plugin in your project.   
 Open the **Edit -> Plugins**, enable the plugin and restart the Editor.
@@ -21,7 +37,7 @@ Once the Editor is restarted, if you browse the resources panel, you should now 
 
 ![](/assets/images/tut_setup_2.png)
 
-#### Setting up the Game Mode
+### Setting up the Game Mode
 
 Now we need to setup a new Game Mode in order to use ArcadeVS default Player Controller Blueprint
 
@@ -36,7 +52,7 @@ Once this is done, edit the level blueprint to tell it to use our new GameMode.
 
 ![](/assets/images/tut_setup_6.png)
 
-#### Configuring Inputs
+### Configuring Inputs
 
 Now that we've setup our GameMode, let's take a look at the BP_ArcadeVS_PlayerController Blueprint class to see what inputs its expecting.
 In the Content Browser, open the ArcadeVS Content folder and double click the BP_ArcadeVS_PlayerController blueprint
@@ -62,7 +78,7 @@ Here's an example setup when using a Gamepad:
 
 ![](/assets/images/tut_setup_7.png)
 
-### Trying it out!
+## Trying it out!
 
 Now that the project setup is complete, hit play! You should see the TestVehicle being spawned with it debug disply enabled.
 
@@ -76,14 +92,14 @@ If you would like to also try the Kart Vehicle that comes with ArcadeVS to see a
 
 ![](/assets/images/tut_setup_9.png)
 
-### Important notes
+## Important notes
 
-#### Drifting
+### Drifting
 
 - The Drifting mechanic does not work as a toggle. This means that the Vehicle will keep on drifting as long as you will keep the Drift button pressed but will stop as soon as the button is released.
 - Also remember that to be able to Drift a Vehicle must meet the requierements set in the Drift settings section. For the TestVehicle this means having a speed of at least **60%** of its max speed and having the **Turn axis value >= .9** (almost fully engaged).
 
-#### Display and Antialias
+### Display and Antialias
 
 - You will immediately notice that the Debug suspension lines of the TestVehicle becomes blurry when accelerating. This is not a bug and is related to Unreal's default project settings.
 By default Unreal will activate Motion Blur, this is great and looks awsome but when controlling a very fast moving object with a 3rd person camera, it does not look great.

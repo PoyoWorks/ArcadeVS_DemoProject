@@ -1,11 +1,31 @@
-## Using your own Vehicle Mesh
+---
+layout: default
+title: Tutorial - Custom Vehicle Setup
+nav_order: 4
+---
+
+
+# Custom Vehicle Tutorial
+{: .no_toc }
 
 Now that you have a basic understanding on how ArcadeVS works and that you've tested the defaults vehicle, its time to make your own :)
+{: .fs-5 }
 
 This document will detail the steps needed to prepare a Vehicle Skeletal Mesh and set it up properly to be used with an ArcadeVS vehicle.
+
 For this Tutorial I'm going to use a nice low-poly 3D car model coming from [Synty Studios - Simple Racer Pack](https://www.unrealengine.com/marketplace/en-US/simple-racer)
 
-### Mesh Setup
+<hr>
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+<br>
+
+## Mesh Setup
 
 The first thing you will want, is to make sure that your Vehicle Mesh is a Skeletal Mesh. You Mesh has to be rigged, this is needed for the following reasons:
 - The Suspension system will need Bones Locations to use as positions to shoot its raycasts and apply the suspension forces
@@ -13,8 +33,13 @@ The first thing you will want, is to make sure that your Vehicle Mesh is a Skele
 
 *If you've bought a 3D Vehicle Asset Packs, all the models will probably already be rigged and have their bones properly setup.*
 
-### Physics Material Setup
+Basically, you want your mesh to follow Unreal's Vehicle Art Setup guidelines
+[Vehicle Art Setup](https://docs.unrealengine.com/en-us/Engine/Physics/Vehicles/VehcileContentCreation)
 
+Do not worry about the physics asset section as we're going to do it in the nest step. For now just make sure that your have at least your 4 bones and that the mesh and the bones are properly oriented.
+
+## Physics Material Setup
+{:toc}
 Now that we've validated that our Mesh is properly rigged and its Bones properly oriented, we need to set its Physics Material. 
 
 If your mesh already has a Physics Material assigned, go and Edit it. Otherwise, you can right click on your Skeletal Mesh in the Content panel and **Create->Physics Asset->Create and Assign**.
@@ -33,15 +58,15 @@ Once this is done, the Physics Material for our Vehicle should look like this:
 
 ![](/assets/images/tut_vehicle_5.png)
 
-### Creating the new Vehicle
-
+## Creating the new Vehicle
+{:toc}
 Now that our Skeletal Mesh is ready, we can create a new Blueprint and select ArcadeVSVehicle as it's parent class.
 
 ![](/assets/images/tut_vehicle_2.png)
 
 Double click the newly created Blueprint to edit it.
 
-#### Adding the Visualizer
+### Adding the Visualizer
 
 To make easier to see what we're doing and layer on fine tune our vehicle, we're going to directly add the Visualizer Component to our newly created Vehicle.
 
@@ -49,7 +74,7 @@ To make easier to see what we're doing and layer on fine tune our vehicle, we're
 
 The Visualizer will have all settings activated by default, which is fine as it will allow us to easily see our suspension setup.
 
-#### Skeletal Mesh settings
+### Skeletal Mesh settings
 
 The first thing to do is to set our new Skeletal Mesh as the Vehicle Skeletal Mesh. To do this, select the **VehicleSkeletalMesh** component in the **components panel** and assign your mesh to the **Skeletal Mesh parameter**. You should now see your Vehicle in the Viewport.
 
@@ -57,7 +82,7 @@ Now, we want to enable physics for our Vehicle. To do this, still with the **Veh
 
 Now if you hit the **Simulate** Button you should see your car falling down the screen.
 
-#### Suspensions Settings
+### Suspensions Settings
 
 Now we need to setup the suspension system. To do this, select the Root Component of your Vehicle. You should now see all the ArcadeVS settings panel.
 The first one being **ArcadeVS / Suspension**
@@ -67,7 +92,7 @@ You should end up with something like this:
 
 ![](/assets/images/tut_vehicle_6.png)
 
-#### First test
+## First test
 
 Now that our Mesh is setup and our suspension system is configured, we can do a first test. 
 
@@ -83,11 +108,11 @@ You should see your vehicle resting above the ground and be able to see the Visu
 ![](/assets/images/tut_vehicle_8.png)
 
 
-### System Tuning
+## System Tuning
 
 Now that the basic setup is done we're going to fine tune our vehicle to make it playable. 
 
-#### Camera
+### Camera
 
 Right now the vehicle should be already controllable but without a properly set camera, it's pretty much useless.
 
@@ -97,7 +122,7 @@ Now if you hit play, you should have a nice view angle and already be able to fu
 
 ![](/assets/images/tut_vehicle_9.png)
 
-#### Setting up the Animation Blueprint
+### Setting up the Animation Blueprint
 
 Ok we have a playable vehicle but it looks very stiff. That's because we havent setup our Animation Blueprint yet so our wheels do not turn and do not reflect the turning direction, let's fix this.
 
@@ -127,7 +152,7 @@ Now hit **Compile**, all warnings should be gone.
 
 ![](/assets/images/tut_vehicle_12.png)
 
-#### Assigning the Animation Blueprint
+### Assigning the Animation Blueprint
 
 Our Vehicle is almost complete now. As the last step we just need to assign our newly created Animation Blueprint to our Vehicle Skeletal Mesh.
 
@@ -136,5 +161,9 @@ Go back and Edit your new Vehicle Blueprint. Select the Skeletal Mesh component 
 - **Animation Mode** Use Animation Blueprint
 - **Anim Class** Select the new Animation Blueprint we just created
 
-Hit compile!
+Hit compile and play!
+
+You should see the wheels of your vehicle rotate and turn.
+
+![](/assets/images/tut_vehicle_13.png)
 
