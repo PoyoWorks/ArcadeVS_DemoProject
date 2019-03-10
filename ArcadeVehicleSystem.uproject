@@ -15,7 +15,8 @@
 		},
 		{
 			"Name": "ArcadeVS",
-			"Enabled": true
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/c2405ef79a3f460d8a31efbea9ace9f2"
 		}
 	]
 }
