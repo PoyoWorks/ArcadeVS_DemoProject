@@ -1,7 +1,6 @@
 ## Welcome to ArcadeVS!
 
-This is the home of the ArcadeVS Vehicle System plugin for Unreal Engine 4.
-
+This is the home of the ArcadeVS Vehicle System plugin for Unreal Engine 4 and its Demo Project.
 If you're looking for the documentation, it's here:
 
-- [Latest Documentation!](https://poyoworks.github.io/ArcadeVS_DemoProject/Documentation/) 
+- [Latest Documentation!](https://poyoworks.github.io/ArcadeVS_DemoProject) 
