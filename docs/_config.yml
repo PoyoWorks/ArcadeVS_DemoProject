@@ -2,7 +2,7 @@ title: ["ArcadeVS"]
 description: ["Description"]
 marketplaceURL: ["https://www.unrealengine.com/marketplace/en-US/store"]
 
-theme: "just-the-docs"
+remote_theme: pmarsceill/just-the-docs
 search_enabled: true
 aux_links:
     "PoyoWorks on github":
