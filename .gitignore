@@ -55,6 +55,10 @@ Plugins/*/Binaries/*
 # Builds
 Build/*
 
+# External Content
+*/SimpleRacer/*
+
+
 # Whitelist PakBlacklist-<BuildConfiguration>.txt files
 !Build/*/
 Build/*/**
@@ -83,6 +87,7 @@ DerivedDataCache/*
 _site
 _site/*
 */_site
+*.lock
 
 # Plugins should have their own repo
 Plugins/*
