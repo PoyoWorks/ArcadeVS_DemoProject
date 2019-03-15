@@ -1,6 +1,7 @@
 title: ["ArcadeVS"]
 description: ["Description"]
 marketplaceURL: ["https://www.unrealengine.com/marketplace/en-US/store"]
+pcdemoURL: ["https://drive.google.com/open?id=1WaeAxBaCbi7nJhmofw-PHJz3Z1ywfvlL"]
 
 remote_theme: pmarsceill/just-the-docs
 search_enabled: true
