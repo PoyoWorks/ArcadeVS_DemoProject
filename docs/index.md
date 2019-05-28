@@ -12,7 +12,8 @@ Here you will find the latest documentation for UE4 Marketplace Arcade Vehicle S
 {: .fs-6 }
 
 [Check ArcadeVS on the Marketplace]({{ site.marketplaceURL }}){: .btn .fs-5 .btn-blue} [Download the DemoProject](https://github.com/PoyoWorks/ArcadeVS_DemoProject/archive/ArcadeVS_DemoProject_v1.0.zip){:.btn .fs-5}
-
+<br>
+[Get the PC Demo Version]({{ site.pcdemoURL }}){: .btn .fs-5 .btn-green}
 <hr>
 
 ## Table of contents
