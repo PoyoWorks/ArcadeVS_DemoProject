@@ -4,8 +4,6 @@ title: V1.1 Update Release Notes
 nav_order: 1
 ---
 
-<iframe width="420" height="315" src="https://www.youtube.com/watch?v=E_pd1yEr-QQ" frameborder="0" allowfullscreen></iframe>
-
 ## New Features
 ### New Sports Vehicle
 A new vehicle has been added to the Plugin and can be tested in the Demo, it's the Sports Car. Thanks to the new Animator Component, vehicle Tilt and Roll can now be computed based on some parameters to give the vehicle is way more realistic feeling while keeping the cool and simple arcade logic under it. 

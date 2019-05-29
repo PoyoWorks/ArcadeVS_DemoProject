@@ -19,9 +19,10 @@ Here you will find the latest documentation for UE4 Marketplace Arcade Vehicle S
 v1.1 Update COMING SOON
 {: .label .label-yellow }
 
-The update is coming along nicely, the build has just been submited to the store so it should be available in ~2 weeks. 
-<br>
+The update is coming along nicely, the build has just been submited to the store so it should be available in ~2 weeks!
 For all the details about the new features and changes, it's  **[here!](./v11_update.html)**
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/E_pd1yEr-QQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <hr>
 
