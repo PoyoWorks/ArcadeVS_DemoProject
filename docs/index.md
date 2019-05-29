@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Home
-nav_order: 1
+nav_order: 0
 ---
 
 # UE4 ArcadeVS Plugin
@@ -11,9 +11,18 @@ Hi, Thanks for checking out **ArcadeVS**!
 Here you will find the latest documentation for UE4 Marketplace Arcade Vehicle System plugin **ArcadeVS** and its **DemoProject**.
 {: .fs-6 }
 
-[Check ArcadeVS on the Marketplace]({{ site.marketplaceURL }}){: .btn .fs-5 .btn-blue} [Download the DemoProject](https://github.com/PoyoWorks/ArcadeVS_DemoProject/archive/ArcadeVS_DemoProject_v1.0.zip){:.btn .fs-5}
+[Check ArcadeVS on the Marketplace]({{ site.marketplaceURL }}){: .btn .fs-5 .btn-blue} [Download the DemoProject](https://github.com/PoyoWorks/ArcadeVS_DemoProject/archive/ArcadeVS_DemoProject_v1.1.zip){:.btn .fs-5}
 <br>
-[Get the PC Demo Version]({{ site.pcdemoURL }}){: .btn .fs-5 .btn-green}
+[Get the new PC Demo v1.1]({{ site.pcdemoURL }}){: .btn .fs-5 .btn-green}
+<hr>
+
+v1.1 Update COMING SOON
+{: .label .label-yellow }
+
+The update is coming along nicely, the build has just been submited to the store so it should be available in ~2 weeks. 
+<br>
+For all the details about the new features and changes, it's  **[here!](./v11_update.html)**
+
 <hr>
 
 ## Table of contents
