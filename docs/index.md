@@ -8,7 +8,7 @@ nav_order: 0
 {: .no_toc }
 
 Hi, Thanks for checking out **ArcadeVS**!
-Here you will find the latest documentation for UE4 Marketplace Arcade Vehicle System plugin **ArcadeVS** and its **DemoProject**.
+Here you will find the latest documentation for UE4's **Arcade Vehicle System** plugin and its **DemoProject**.
 {: .fs-6 }
 
 [Check ArcadeVS on the Marketplace]({{ site.marketplaceURL }}){: .btn .fs-5 .btn-blue} [Download the DemoProject](https://github.com/PoyoWorks/ArcadeVS_DemoProject/archive/ArcadeVS_DemoProject_v1.1.zip){:.btn .fs-5}
@@ -16,11 +16,10 @@ Here you will find the latest documentation for UE4 Marketplace Arcade Vehicle S
 [Get the new PC Demo v1.1]({{ site.pcdemoURL }}){: .btn .fs-5 .btn-green}
 <hr>
 
-v1.1 Update COMING SOON
-{: .label .label-yellow }
+v1.1 Update RELEASED
+{: .label .label-red }
 
-The update is coming along nicely, the build has just been submited to the store so it should be available in ~2 weeks!
-For all the details about the new features and changes, it's  **[here!](./v11_update.html)**
+The update is now available on the marketplace. For all the details about the new features and changes, it's  **[here!](./v11_update.html)**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/E_pd1yEr-QQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -75,24 +74,6 @@ Here is a list of the main features of the Vehicle System. For a complete list o
 - **In Air Stabilization**: if enabled, this will try to align the vehicle up vector with the Z-vector when the vehicle is considered airborne. This can also be used if the car is stuck flipped to make it go back on its wheels.
 - **Drifting**: with the simplest settings, drifting simply applies a nerf to the adherence force and an offset to the turning scale registered from the controller. But I wanted to get as close as I could to the Mario Kart system so I've added many settings to allow for keeping your speed while drifting, increasing your rotation angle and other cool stuff. You can check all the drift mechanic settings [here]
 
-
-## C++ Visualizer
-The C++ Visualizer is an Actor Component that can be added to any ArcadeVSVehicle class. It will help you debug and fine tune the setup of your vehicle by drawing on the screen the main forces applied to your vehicle at runtime.
-
-![](/assets/images/visualizer_3.png)
-*On this screenshot, the yellow arrow represents the velocity of the vehicle, the green arrow its acceleration and the purple one its adherence. You can also see the suspension raycasts. The vectors are drawn each frame and the time that they stay displayed can be configured. Here the time was set to .1 to see around 6f assuming we're running @60fps (~0.016*6)
-
-### Settings
-Here are some details about some parameters
-- **Debug Material**: a custom material that will override the vehicle mesh material. This is quite handy for debugging the suspension system buy using a transparent material. This will allow you to exactly see the start and end point of the suspension raycasts as well as the center of gravity of the vehicle.
-- **Life Time**: the time that each force / raycast drawn will stay displayed. The setting that I find the most usefull is to set it to 0.016 while locking your framerate at 60fps in the Editor by using the Console command t.MaxFPS 60. This will ensure that you only see all the forces for the current frame.
-- **Force scaling**: To make the drawing of the forces relevant, they must have the same scale so that seeing a vector twice as big as another actually means that the force is twice as big. To do this, all forces are taken as is but are multiplied by a scale factor so that they don't look completely oversized on screen. The default value should work in most cases but if you're working on a huge or very small vehicle you may want to slightly adjust it.
-
-![](/assets/images/visualizer_1.png)
-![](/assets/images/visualizer_2.png)
-
-By  creating either a C++ or Blueprint class inheriting the Visualizer, you could add your own routines to draw any new or existing properties of your Vehicle that you would like to monitor/debug.
-
 ## C++ / Blueprint API
 ### C++
 The Vehicle System Logic is done in C++, but almost all functions are marked virtual and can be overriden by extending the class in C++. *The goal is that anyone can customize the system like he wants*. For example, if you don't like how the vehicles accelerate or jump, simply create a new C++ vehicle class and rewrite the **Accelerate()** or **Jump()** functions.
@@ -120,7 +101,7 @@ The plugin comes with some Blueprint classes to demonstrate its features.
 
 ![](/assets/images/blueprint_content.png) 
 
-### Test Vehicle
+### Template Vehicle
 The Test Vehicle is simple ArcadeVS Vehicle with almost no Blueprint Logic added. It has a dummy Skeletal Mesh that has been rigged to have 4 wheels bones when the center of the wheels would be. Those bones are used as the location points for the Suspension System.
 
 Its settings are very close to the default settings of the system.
@@ -132,6 +113,14 @@ It has the following behavior:
 - Drift settings where it will not loose too much speed while loosing a little adherence and getting a nice turn angle boost
 
 ![](/assets/images/test_vehicle.png) 
+
+### Sports Vehicle
+new in v1.1 
+{: .label .label-red }
+
+The Sports vehicle takes full use of the new Animator components to show how to make a more realistic vehicle. This vehicle looks and feels more like the kind of vehicle that you would find in games like GTA. 
+
+![](/assets/images/sports_vehicle.png) 
 
 ### Kart Vehicle
 The Kart Vehicle is more advanced than the Test Vehicle and is a demo on what a more advanced / real game vehicle could look like. It has a textured and animated Skeletal Mesh as well as some Blueprint logic hooked to the Blueprint Events API to trigger Material and Particles Effects.
@@ -145,9 +134,49 @@ Its behavior is different from the Test Vehicle:
 
 ![](/assets/images/kart_vehicle.png) 
 
+### Heavy and Light Kart Vehicles
+new in v1.1 
+{: .label .label-red }
+
+The heavy and light kart vehicles are simply two variations on the Kart vehicle to give an idea of some parameters that can be easily tweaked to quickly create different vehicles.
+- The light kart as it names imply is lighter, it has a fast acceleration and low max speed. Its also less stable which means that it will easily jump when there's bumps on the ground. It also has better turning.
+- The heavy kart on the other side has a slow acceleration but a higher max speed. Its more stable and will stick to the ground.
+
+
 ## Animation System
+### Animator Component
+new in v1.1 
+{: .label .label-red }
+
+The Animation system has been changed in v1.1 and is now handled by a dedicated component. This component is responsible for computing all the values that the animation blueprint needs to properly animate the vehicle.
+
+![](/assets/images/animator_settings.png) 
+
+### Animation Blueprint
+new in v1.1 
+{: .label .label-red }
+The Animation Instance Blueprint now also supports Wheels Offsets, Tilt and Roll.
+
 The Animation Instance Blueprints supports wheels rotation, front wheels direction and drift direction. All those values comes from the C++ interface and are updated each frame by the Vehicle System. The blueprint updates the position and rotation of each wheel bones to reflect the changes. 
 
 To use this blueprint, simply assign it to your skeletal mesh and update the names of the wheel bones in each Transform/Modify bone node.
 
 ![](/assets/images/animation_system.png) 
+
+
+## C++ Visualizer
+The C++ Visualizer is an Actor Component that can be added to any ArcadeVSVehicle class. It will help you debug and fine tune the setup of your vehicle by drawing on the screen the main forces applied to your vehicle at runtime.
+
+![](/assets/images/visualizer_3.png)
+*On this screenshot, the yellow arrow represents the velocity of the vehicle, the green arrow its acceleration and the purple one its adherence. You can also see the suspension raycasts. The vectors are drawn each frame and the time that they stay displayed can be configured. Here the time was set to .1 to see around 6f assuming we're running @60fps (~0.016*6)
+
+### Settings
+Here are some details about some parameters
+- **Debug Material**: a custom material that will override the vehicle mesh material. This is quite handy for debugging the suspension system buy using a transparent material. This will allow you to exactly see the start and end point of the suspension raycasts as well as the center of gravity of the vehicle.
+- **Life Time**: the time that each force / raycast drawn will stay displayed. The setting that I find the most usefull is to set it to 0.016 while locking your framerate at 60fps in the Editor by using the Console command t.MaxFPS 60. This will ensure that you only see all the forces for the current frame.
+- **Force scaling**: To make the drawing of the forces relevant, they must have the same scale so that seeing a vector twice as big as another actually means that the force is twice as big. To do this, all forces are taken as is but are multiplied by a scale factor so that they don't look completely oversized on screen. The default value should work in most cases but if you're working on a huge or very small vehicle you may want to slightly adjust it.
+
+![](/assets/images/visualizer_1.png)
+![](/assets/images/visualizer_2.png)
+
+By  creating either a C++ or Blueprint class inheriting the Visualizer, you could add your own routines to draw any new or existing properties of your Vehicle that you would like to monitor/debug.
