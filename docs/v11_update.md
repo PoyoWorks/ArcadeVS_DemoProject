@@ -1,7 +1,7 @@
 ---
 layout: default
 title: V1.1 Update Release Notes
-nav_order: 1
+nav_order: 7
 ---
 
 ## New Features

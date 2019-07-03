@@ -1,16 +1,14 @@
 ---
 layout: default
-title: Plugin Overview
-nav_order: 2
+title: Technical Specification
+nav_order: 10
 ---
 
-# Plugin Details
-
-## Technical
+# Technical Specification
 
 - Supported Development Platforms: Windows
 - Supported Target Build Platforms: x64 / Android / HTML5
-- Network Replicated: Yes, the vehicle system is based on the Pawn class so it supports built-in replication. Client side prediction and server reconciliation have not been implemented yet.
+- Network Replicated: No, this feature is under development. There a networked player controller available but the movement on the owning client is jaggy.
 
 ## Full content
 
@@ -25,17 +23,23 @@ nav_order: 2
 
 ### Assets
 
-5 Blueprint classes
+7 Blueprint classes
+- Sports Vehicle
 - Kart Vehicle
+- Light Kart Vehicle
+- Heavy Kart Vehicle
+- Template Vehicle
 - Test Vehicle
+- Networked Player Controller (work in progress)
 - Player Controller
 - Default Vehicle Anim
 - Drift Vehicle Anim
 
 6 Materials
 
-2 Models 
+3 Models 
 - Kart Skeletal Mesh. Fully textured with physics asset, iddle animation and blueprint animation logic
+- Sports Vehicle Skeletal Mesh.
 - Test Vehicle Skeletal Mesh with physics asset
 
 5 VFXs
@@ -53,7 +57,7 @@ nav_order: 2
 - All functions can be overriden in C++ so that you can get the exact behavior you want
 - All state values and forces exposed to Blueprints
 - Blueprint events for all state changes! Accelerate Start/Stop, Can Drift, Drift Start/Stop etc...
-- Blueprint Animation system for wheels rotation, direction, drift and suspension movements
+- Blueprint Animation system for wheels rotation, wheels suspension offsets, direction, drift, tilt and roll.
 - Demo vehicles included. Properly tuned and game ready. Simply update your mesh and animations and play.
 
 

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Tutorial - Custom Vehicle Setup
-nav_order: 4
+nav_order: 9
 ---
 
 
