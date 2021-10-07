@@ -1,0 +1,1 @@
+C:\Program Files\Epic Games\UE_4.26\Engine\Build\BatchFiles\RunUAT.bat BuildPlugin -Rocket -Plugin="C:\Users\lucas\source\repos\ArcadeVS_DemoProject\Plugins\ArcadeVS\ArcadeVS.uplugin" -TargetPlatforms=Win64 -Package="C:\Users\lucas\source\repos\ArcadeVS_Plugin\ArcadeVS_2.26" -VS2019
